@@ -1,0 +1,73 @@
+<!DOCTYPE html >
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    
+    <title>ADX Converter</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+
+<style>
+
+    .navbar{
+
+        list-style: none;
+        justify-content: center;
+    }
+    .col-3{
+        align-content: center;
+    }
+</style>
+<body>
+
+    <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Meny</a>
+    
+            <li class="nav-item">
+              <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">ADXtoWAV</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">WavtoADX</a>
+            </li>
+           
+    
+      </nav>
+    
+<div class ="d-flex">
+    <div class="col-3">
+     <h1>Convert from ADX to WAV</h1>   
+    <form ref="uploadForm" id="uploadForm" enctype="multipart/form-data"  method="POST" action="/adxtowav">
+     <div class="form-group">
+        <div class="input-group">    
+    <input type="file"  name="adx" class="form-control"  >
+    </div>
+    <div class="input-group">
+    <input type="submit" value="Convert" class="form-control">
+        </div>
+     </div>
+    </form>
+    </div>
+    <div class="col-3">
+        <h1>Convert from WAV to ADX</h1>   
+       <form ref="uploadForm" id="uploadForm" enctype="multipart/form-data"  method="POST" action="/wavtoadx">
+        <div class="form-group">
+           <div class="input-group">    
+       <input type="file"  name="wav" class="form-control"  >
+       </div>
+       <div class="input-group">
+       <input type="submit" value="Convert" class="form-control">
+           </div>
+        </div>
+       </form>
+       </div>
+    </div>
+
+
+</body>
+</html>

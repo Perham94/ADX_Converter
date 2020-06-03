@@ -1,0 +1,20 @@
+{
+  "name": "adx-converter",
+  "version": "1.0.0",
+  "description": "converting adx",
+  "main": "server.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "author": "Per",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-fileupload": "^1.1.7-alpha.3",
+    "fluent-ffmpeg": "^2.1.2",
+    "nodemon": "^2.0.4"
+  }
+}
