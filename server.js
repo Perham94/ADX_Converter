@@ -24,6 +24,14 @@ app.get('/',(req,res) => {
     if (!fs.existsSync(dir)){
         fs.mkdirSync(dir);
     }
+   
+
+
+  
+
+
+      
+
 
 })
 
@@ -52,11 +60,8 @@ app.post('/adxtowav',(req,res) => {
         console.log("error has occured" + error.message);
     })
     .pipe(res,{end:true})
-    
-     
+    fs.rmdirSync(dir);
 
-
-  //
 
 })
 
@@ -64,30 +69,34 @@ app.post('/adxtowav',(req,res) => {
 
 app.post('/wavtoadx',(req,res) => {
     res.contentType('audio/adx');
-    res.attachment((req.files.adx.name + '.adx').replace(".wav",""));
-    req.files.wav.mv('tmp/' + req.files.wav.name,function(err){
+    res.attachment((req.files.wav.name + '.adx').replace(".wav",""));
+    req.files.adx.mv('tmp/' + req.files.wav.name,function(err){
         if(err){
-            return res.sendStatus(500).send(err);
+             res.sendStatus(500);
+             return;
         }
         console.log("upload the file sucessfully");
     });
 
- 
 
-   res.send( ffmpeg("tmp/" + req.files.wav.name)
-    .toFormat('adx')
+    ffmpeg("tmp/" + req.files.wav.name)
+    .toFormat("wav")
     .on('end',function(){
         console.log("done");
-        ffmpeg("tmp/" + req.files.wav.name).loop();
+        
     })
     .on('error', function(error){
         console.log("error has occured" + error.message);
     })
-    .pipe(res,{end:true}))
+    .pipe(res,{end:true})
+    
+    fs.rmdirSync(dir);
+
 
 })
 
-//
+
+
 
 
 
