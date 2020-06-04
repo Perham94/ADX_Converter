@@ -36,7 +36,7 @@ app.post('/adxtowav', async (req,res) => {
         console.log("upload the file sucessfully");
     });
 
-    res.write(ffmpeg("tmp/" + req.files.adx.name)
+    res.sendfile(ffmpeg("tmp/" + req.files.adx.name)
     .toFormat("wav")
     .on('end',function(){
         console.log("done");
