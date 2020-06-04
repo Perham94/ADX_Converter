@@ -3,7 +3,7 @@ const ffmpeg = require('fluent-ffmpeg');
 const fileupload = require('express-fileupload');
 const app = express();
 
-const port = process.env.PORT || 9000
+let  port = process.env.PORT;
 ffmpeg.setFfmpegPath("./bin/ffmpeg.exe");
 
 app.use(fileupload({
