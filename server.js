@@ -37,7 +37,7 @@ app.post('/adxtowav', async (req,res) => {
     });
 
  
-    ffmpeg("tmp/" + req.files.adx.name)
+ return ffmpeg("tmp/" + req.files.adx.name)
     .toFormat("wav")
     .on('end',function(){
         console.log("done");
@@ -46,7 +46,7 @@ app.post('/adxtowav', async (req,res) => {
     .on('error', function(error){
         console.log("error has occured" + error.message);
     })
-    .pipe(res,{end:true})
+    .pipe(res,{end:true});
     
      
 
