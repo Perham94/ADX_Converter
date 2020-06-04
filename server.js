@@ -21,6 +21,7 @@ app.use(fileupload({
 
 app.get('/',(req,res) => {
     res.sendFile(__dirname + '/index.html');
+    
     if (!fs.existsSync(dir)){
         fs.mkdirSync(dir);
     }
@@ -60,7 +61,7 @@ app.post('/adxtowav',(req,res) => {
         console.log("error has occured" + error.message);
     })
     .pipe(res,{end:true})
-    fs.rmdirSync(dir);
+   
 
 
 })
@@ -90,7 +91,7 @@ app.post('/wavtoadx',(req,res) => {
     })
     .pipe(res,{end:true})
     
-    fs.rmdirSync(dir);
+    
 
 
 })
