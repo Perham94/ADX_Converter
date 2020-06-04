@@ -25,7 +25,7 @@ app.get('/',(req,res) => {
 
 
 
-
+//post
 app.post('/adxtowav',(req,res) => {
     res.contentType('audio/wav');
     res.attachment((req.files.adx.name + '.wav').replace(".adx",""));
@@ -35,8 +35,8 @@ app.post('/adxtowav',(req,res) => {
         }
         console.log("upload the file sucessfully");
     });
- //
- 
+
+
     ffmpeg("tmp/" + req.files.adx.name)
     .toFormat("wav")
     .on('end',function(){
