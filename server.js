@@ -31,7 +31,8 @@ app.post('/adxtowav',(req,res) => {
     res.attachment((req.files.adx.name + '.wav').replace(".adx",""));
     req.files.adx.mv('tmp/' + req.files.adx.name,function(err){
         if(err){
-            return res.sendStatus(500).send(err);
+             res.sendStatus(500);
+             return;
         }
         console.log("upload the file sucessfully");
     });
