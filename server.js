@@ -31,7 +31,7 @@ app.post('/adxtowav',(req,res) => {
     res.attachment((req.files.adx.name + '.wav').replace(".adx",""));
     req.files.adx.mv('tmp/' + req.files.adx.name,function(err){
         if(err){
-            return res.sendStatus(err.status).send(err);
+            return res.sendStatus(500).send(err);
         }
         console.log("upload the file sucessfully");
     });
@@ -61,7 +61,7 @@ app.post('/wavtoadx',(req,res) => {
     res.attachment((req.files.adx.name + '.adx').replace(".wav",""));
     req.files.wav.mv('tmp/' + req.files.wav.name,function(err){
         if(err){
-            return res.sendStatus(err.status).send(err);
+            return res.sendStatus(500).send(err);
         }
         console.log("upload the file sucessfully");
     });
