@@ -4,6 +4,8 @@ const fileupload = require('express-fileupload');
 const app = express();
 const ffmpegPath = require('@ffmpeg-installer/ffmpeg').path;
 let  port = process.env.PORT;
+var fs = require('fs');
+var dir = './tmp';
 
 ffmpeg.setFfmpegPath(ffmpegPath);
 
@@ -19,8 +21,9 @@ app.use(fileupload({
 
 app.get('/',(req,res) => {
     res.sendFile(__dirname + '/index.html');
-
-  
+    if (!fs.existsSync(dir)){
+        fs.mkdirSync(dir);
+    }
 
 })
 
