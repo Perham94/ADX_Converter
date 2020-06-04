@@ -2,9 +2,10 @@ const express = require('express');
 const ffmpeg = require('fluent-ffmpeg');
 const fileupload = require('express-fileupload');
 const app = express();
-
+const ffmpegPath = require('@ffmpeg-installer/ffmpeg').path;
 let  port = process.env.PORT;
-ffmpeg.setFfmpegPath(__dirname+"/bin/ffmpeg.exe");
+
+ffmpeg.setFfmpegPath(ffmpegPath);
 
 app.use(fileupload({
     useTempFiles:true,
