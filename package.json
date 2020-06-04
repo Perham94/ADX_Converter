@@ -7,7 +7,7 @@
     "doc": "doc"
   },
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "node server.js"
   },
   "author": "Per",
   "license": "ISC",
