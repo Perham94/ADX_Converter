@@ -26,7 +26,7 @@ app.get('/',(req,res) => {
 
 
 
-app.post('/adxtowav', async (req,res) => {
+app.post('/adxtowav',(req,res) => {
     res.contentType('audio/wav');
     res.attachment((req.files.adx.name + '.wav').replace(".adx",""));
     req.files.adx.mv('tmp/' + req.files.adx.name,function(err){
