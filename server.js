@@ -4,7 +4,7 @@ const fileupload = require('express-fileupload');
 const app = express();
 
 let  port = process.env.PORT;
-ffmpeg.setFfmpegPath("/bin/ffmpeg.exe");
+ffmpeg.setFfmpegPath("D:\\ADX converter\\bin\\ffmpeg.exe");
 
 app.use(fileupload({
     useTempFiles:true,
