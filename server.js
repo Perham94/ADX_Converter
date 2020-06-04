@@ -3,7 +3,7 @@ const ffmpeg = require('fluent-ffmpeg');
 const fileupload = require('express-fileupload');
 const app = express();
 
-
+const port = process.env.PORT || 9000
 ffmpeg.setFfmpegPath("D:/ADX converter/bin/ffmpeg.exe");
 
 app.use(fileupload({
@@ -85,6 +85,6 @@ app.post('/wavtoadx',(req,res) => {
 
 
 
-app.listen(5000,() =>{
-    console.log("server is on port 5000")
+app.listen(port,() =>{
+    console.log("" + port)
 })
