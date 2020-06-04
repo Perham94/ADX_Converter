@@ -68,7 +68,7 @@ app.post('/wavtoadx',(req,res) => {
 
  
 
-  res.send(ffmpeg("tmp/" + req.files.wav.name)
+   res.send( ffmpeg("tmp/" + req.files.wav.name)
     .toFormat('adx')
     .on('end',function(){
         console.log("done");
@@ -77,7 +77,7 @@ app.post('/wavtoadx',(req,res) => {
     .on('error', function(error){
         console.log("error has occured" + error.message);
     })
-    .pipe(res,{end:true}));
+    .pipe(res,{end:true}))
 
 })
 
