@@ -26,7 +26,7 @@ app.get('/',(req,res) => {
 
 
 
-app.post('/adxtowav',(req,res) => {
+app.post('/adxtowav', async (req,res) => {
     res.contentType('audio/wav');
     res.attachment((req.files.adx.name + '.wav').replace(".adx",""));
     req.files.adx.mv('tmp/' + req.files.adx.name,function(err){
@@ -36,11 +36,11 @@ app.post('/adxtowav',(req,res) => {
         console.log("upload the file sucessfully");
     });
 
-   return ffmpeg("tmp/" + req.files.adx.name)
+ ffmpeg("tmp/" + req.files.adx.name)
     .toFormat("wav")
     .on('end',function(){
         console.log("done");
-        ffmpeg("tmp/" + req.files.adx.name).loop();
+        
     })
     .on('error', function(error){
         console.log("error has occured" + error.message);
